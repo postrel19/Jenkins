@@ -17,6 +17,7 @@ pipeline {
     }
     stages {
         stage('Run builds') {
+            steps {
             def PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
             def AllNodes = ['ALFA','BETA','ZETA']
             def Platforms =[:]
@@ -53,6 +54,7 @@ pipeline {
                     break
                     }
                 }
+            }
             }
         }
     }
