@@ -18,10 +18,10 @@ pipeline {
     stages {
         stage('Run builds') {
             steps {
-            def PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
-            def AllNodes = ['ALFA','BETA','ZETA']
-            def Platforms =[:]
-            def Nodes = [:]
+            PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
+            AllNodes = ['ALFA','BETA','ZETA']
+            Platforms =[:]
+            Nodes = [:]
             for (p in PlatformsForBuild){
                 if (params.p){
                     Platforms.p = true
