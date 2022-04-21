@@ -15,14 +15,12 @@ pipeline {
         booleanParam(name: 'XBoxOneGDK', defaultValue: false, description: 'Build XBoxOneGDK')
         booleanParam(name: 'Server', defaultValue: false, description: 'Build Server')
     }
-    def PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
-    def AllNodes = ['ALFA','BETA','ZETA']
-    def Platforms =[:]
-    def Nodes = [:]
     stages {
         stage('Run builds') {
-            
-            
+            def PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
+            def AllNodes = ['ALFA','BETA','ZETA']
+            def Platforms =[:]
+            def Nodes = [:]
             for (p in PlatformsForBuild){
                 if (params.p){
                     Platforms.p = true
