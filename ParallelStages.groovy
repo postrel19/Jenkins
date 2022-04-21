@@ -19,36 +19,36 @@ pipeline {
         stage('Run builds') {
             steps {
             PlatformsForBuild = ['PS4','XSX','PS5','XBoxOneGDK','Win64','Server']
-            AllNodes = ['ALFA','BETA','ZETA']
+            AllAgents = ['ALFA','BETA','ZETA']
             Platforms =[:]
-            Nodes = [:]
+            Agents = [:]
             for (p in PlatformsForBuild){
                 if (params.p){
                     Platforms.p = true
                 }
             }
-            for (n in AllNodes){
+            for (n in AllAgents){
                 if (params.n){
-                    Nodes.n = true
+                    Agents.n = true
                 }
             }
             for (p in PlatformsForBuild){
                 if (Platforms.p){
-                    for (n in AllNodes){
-                        if (Nodes.n){
+                    for (n in AllAgents){
+                        if (Agents.n){
                             parallel {
-                                Nodes.n=false
-                                    stage("${PlatformsForBuild.p} in ${AllNodes.n}") {
+                                Agents.n=false
+                                    stage("${PlatformsForBuild.p} in ${AllAgents.n}") {
                                         agent {
                                             docker {image 'docker/getting-started '}
                                         }
                                         steps {
-                                            echo p+"${PlatformsForBuild.p}"+n+"${AllNodes.n}"
+                                            echo p+"${PlatformsForBuild.p}"+n+"${AllAgents.n}"
                                             Platforms.p=false
                                             sh 'node --version'
                                         }
                                     }
-                                Nodes.n=true
+                                Agents.n=true
                             }
                         }
                     break
