@@ -1,21 +1,21 @@
 env.MassInMass = ['a','b','c','d','e','f']
 env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
 def foo1 = {m, mm ->
-    for (n in mm){
-        if (env.Massive.n){
-            echo n
-            env.Massive.n = false
-            echo n
+    for (p in mm){
+        if (env.Massive.p){
+            echo p
+            env.Massive.p = false
+            echo p
             sleep(10)
         }
     }
 }
 def foo2 = {m,mm ->
-    for (n in mm){
-        if (env.MassInMass.n){
-            echo n
-            env.Massive.n = false
-            echo n
+    for (p in mm){
+        if (env.MassInMass.p){
+            echo p
+            env.Massive.p = false
+            echo p
             sleep(10)
 
         }
@@ -29,7 +29,8 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-               echo env.Massive
+                echo env.MassInMas
+                echo env.Massive
             }
         }
         stage('Parallel Stage') {
