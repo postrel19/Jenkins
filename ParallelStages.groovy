@@ -1,5 +1,5 @@
-def env.MassInMass = ['a','b','c','d','e','f']
-def env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
+env.MassInMass = ['a','b','c','d','e','f']
+env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
 def foo1 = {m, mm ->
     for (p in mm){
         if (env.Massive.p){
