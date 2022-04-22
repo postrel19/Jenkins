@@ -12,14 +12,15 @@ pipeline {
         stage('Parallel Stage') {
             parallel {
                 stage('Branch A') {
-                    agent { label 'master'
-                        //  docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                        //}
-                    }
+                    agent any
+                    // { label 'master'
+                    //     //  docker {
+                    //     //     image 'docker/getting-started'
+                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                    //     //     reuseNode true
+                    //     //     label "build-image"
+                    //     //}
+                    // }
                     steps {
                         sleep(random(10,50))
                         echo '1'
@@ -27,14 +28,15 @@ pipeline {
                     }
                 }
                 stage('Branch B') {
-                    agent { label 'master'
-                        // docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                            //}
-                    }
+                    agent any
+                    // { label 'master'
+                    //     // docker {
+                    //     //     image 'docker/getting-started'
+                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                    //     //     reuseNode true
+                    //     //     label "build-image"
+                    //         //}
+                    // }
                     steps {
                         sleep(random(10,50))
                         echo '1'
@@ -42,16 +44,17 @@ pipeline {
                     }
                 }
                 stage('Branch C') {
-                    agent { label 'master'
-                            // on interrupt do
+                    agent any
+                    // { label 'master'
+                    //         // on interrupt do
                         
-                        // docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                        //     }
-                    }
+                    //     // docker {
+                    //     //     image 'docker/getting-started'
+                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                    //     //     reuseNode true
+                    //     //     label "build-image"
+                    //     //     }
+                    // }
                     stages {
                         stage('Nested 1') {
                             steps {
