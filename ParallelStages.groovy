@@ -3,13 +3,13 @@ env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true'
 def foo1 = {m, mm ->
 echo env.Massive
 echo env.MassInMass
-    for (p in env.MassInMas){
-        echo p+' hui'
+    for (par in env.MassInMas){
+        echo par+' hui'
         print (mm)
-        if (env.Massive.p){
-            echo p
-            env.Massive.p = false
-            echo p
+        if (env.Massive.par){
+            echo par
+            env.Massive.par = false
+            echo par
             sleep(10)
         }
     }
@@ -17,12 +17,12 @@ echo env.MassInMass
 def foo2 = {m,mm ->
 echo env.Massive
 echo env.MassInMass
-    for (p in env.MassInMas){
-        echo p+' hui'
-        if (env.MassInMass.p){
-            echo p
-            env.Massive.p = false
-            echo p
+    for (par in env.MassInMas){
+        echo par+' hui'
+        if (env.MassInMass.par){
+            echo par
+            env.Massive.par = false
+            echo par
             sleep(10)
 
         }
