@@ -10,9 +10,9 @@ def foo1 = {m, mm ->
         }
     }
 }
-def foo2 = {m ->
-    for (n in m){
-        if (n){
+def foo2 = {m,mm ->
+    for (n in mm){
+        if (env.MassInMass.n){
             echo n
             env.Massive.n = false
             echo n
@@ -46,7 +46,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo1(env.Massive)
+                        foo1(env.Massive, env.MassInMass)
                         }
                     }
                 }
@@ -62,7 +62,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo2 (env.Massive)
+                        foo2 (env.Massive, env.MassInMass)
                         }
                     }
                         
