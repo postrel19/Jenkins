@@ -1,25 +1,25 @@
 env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
 def foo1 = {m ->
-                            for (n in m){
-                                if (n){
-                                    echo n
-                                    env.Massive.n = false
-                                    echo n
-                                    sleep(10)
-                                }
-                            }
-                        }
-def = foo2 {m ->
-                            for (n in m){
-                                if (n){
-                                    echo n
-                                    env.Massive.n = false
-                                    echo n
-                                    sleep(10)
+    for (n in m){
+        if (n){
+            echo n
+            nv.Massive.n = false
+            echo n
+            sleep(10)
+        }
+    }
+}
+def foo2 = {m ->
+    for (n in m){
+        if (n){
+            echo n
+            env.Massive.n = false
+            echo n
+            sleep(10)
 
-                                }
-                            }
-                        }
+        }
+    }
+}
 pipeline {
     agent any
     options {
