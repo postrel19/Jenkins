@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-                echo 'This stage will be executed first.'
+                env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
             }
         }
         stage('Parallel Stage') {
@@ -22,9 +22,16 @@ pipeline {
                     //     //}
                     // }
                     steps {
-                        sleep(30)
-                        echo ''
-                        echo "On Branch A"
+                        def foo1 {m ->
+                            for (n in m){
+                                if (n){
+                                    echo n
+                                    env.Massive.n = false
+                                    echo n
+                                    sleep(10)
+                                }
+                            }
+                        }
                     }
                 }
                 stage('Branch B') {
@@ -38,36 +45,16 @@ pipeline {
                     //         //}
                     // }
                     steps {
-                        sleep(15)
-                        echo '1'
-                        echo "On Branch B"
-                    }
-                }
-                stage('Branch C') {
-                    agent any
-                    // { label 'master'
-                    //         // on interrupt do
-                        
-                    //     // docker {
-                    //     //     image 'docker/getting-started'
-                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                    //     //     reuseNode true
-                    //     //     label "build-image"
-                    //     //     }
-                    // }
-                    stages {
-                        stage('Nested 1') {
-                            steps {
-                        sleep(5)
-                        echo '1'
-                                echo "In stage Nested 1 within Branch C"
+                        def foo2 {m ->
+                            for (n in m){
+                                if (n){
+                                    echo n
+                                    env.Massive.n = false
+                                    echo n
+                                    sleep(10)
+
+                                }
                             }
-                        }
-                        stage('Nested 2') {
-                            steps {
-                                echo "In stage Nested 2 within Branch C"
-                            }
-                        }
                     }
                 }
             }
