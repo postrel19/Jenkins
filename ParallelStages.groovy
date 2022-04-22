@@ -4,6 +4,7 @@ def foo1 = {m, mm ->
 echo env.MassInMass
 echo env.Massive
     for (p in mm){
+        echo p+' hui'
         if (env.Massive[p]){
             echo p
             env.Massive.p = false
@@ -16,6 +17,7 @@ def foo2 = {m,mm ->
 echo env.MassInMass
 echo env.Massive
     for (p in mm){
+        echo p+' hui'
         if (env.MassInMass[p]){
             echo p
             env.Massive.p = false
