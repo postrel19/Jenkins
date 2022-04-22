@@ -1,10 +1,10 @@
-def MassInMass = ['a','b','c','d','e','f']
-def Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
+def env.MassInMass = ['a','b','c','d','e','f']
+def env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
 def foo1 = {m, mm ->
     for (p in mm){
-        if (Massive.p){
+        if (env.Massive.p){
             echo p
-            Massive.p = false
+            env.Massive.p = false
             echo p
             sleep(10)
         }
@@ -12,9 +12,9 @@ def foo1 = {m, mm ->
 }
 def foo2 = {m,mm ->
     for (p in mm){
-        if (MassInMass.p){
+        if (env.MassInMass.p){
             echo p
-            Massive.p = false
+            env.Massive.p = false
             echo p
             sleep(10)
 
@@ -29,8 +29,8 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-                echo MassInMas
-                echo Massive
+                echo env.MassInMass
+                echo env.Massive
             }
         }
         stage('Parallel Stage') {
@@ -47,7 +47,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo1(Massive, MassInMass)
+                        foo1(env.Massive, env.MassInMass)
                         }
                     }
                 }
@@ -63,7 +63,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo2 (Massive, MassInMass)
+                        foo2 (env.Massive, env.MassInMass)
                         }
                     }
                         
