@@ -16,7 +16,12 @@ pipeline {
             parallel {
                 stage('Branch A') {
                     agent {
-                         docker {'docker/getting-started'}
+                         docker {
+                            image 'docker/getting-started'
+                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                         }
                     }
                     steps {
                         echo "On Branch A"
@@ -24,7 +29,12 @@ pipeline {
                 }
                 stage('Branch B') {
                     agent {
-                        docker { 'docker/getting-started'}
+                        docker {
+                            image 'docker/getting-started'
+                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                            }
                     }
                     steps {
                         echo "On Branch B"
@@ -32,7 +42,12 @@ pipeline {
                 }
                 stage('Branch C') {
                     agent {
-                        docker { 'docker/getting-started'}
+                        docker {
+                            image 'docker/getting-started'
+                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                            }
                     }
                     stages {
                         stage('Nested 1') {
