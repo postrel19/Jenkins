@@ -1,11 +1,10 @@
 env.MassInMass = ['a','b','c','d','e','f']
 env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-def foo1 = {m, mm ->
+def foo1 = {m ->
 echo env.Massive
 echo env.MassInMass
     for (par in env.MassInMas){
         echo par+' hui'
-        print (mm)
         if (env.Massive.par){
             echo par
             env.Massive.par = false
@@ -14,7 +13,7 @@ echo env.MassInMass
         }
     }
 }
-def foo2 = {m,mm ->
+def foo2 = {m ->
 echo env.Massive
 echo env.MassInMass
     for (par in env.MassInMas){
@@ -54,7 +53,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo1(env.Massive, env.MassInMass)
+                        foo1(env.Massive)
                         }
                     }
                 }
@@ -70,7 +69,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                        foo2 (env.Massive, env.MassInMass)
+                        foo2 (env.Massive)
                         }
                     }
                         
