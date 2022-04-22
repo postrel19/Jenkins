@@ -15,7 +15,7 @@ pipeline {
                     agent {
                          docker {
                             image 'docker/getting-started'
-                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
                             reuseNode true
                             label "build-image"
                          }
@@ -28,7 +28,7 @@ pipeline {
                     agent {
                         docker {
                             image 'docker/getting-started'
-                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
                             reuseNode true
                             label "build-image"
                             }
@@ -41,7 +41,7 @@ pipeline {
                     agent {
                         docker {
                             image 'docker/getting-started'
-                            args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
                             reuseNode true
                             label "build-image"
                             }
