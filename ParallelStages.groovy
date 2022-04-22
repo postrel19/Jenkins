@@ -3,7 +3,7 @@ env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true'
 def foo1 = {m, mm ->
 echo env.Massive
 echo env.MassInMass
-    for (p in mm){
+    for (p in env.MassInMas){
         echo p+' hui'
         print (mm)
         if (env.Massive.p){
@@ -17,7 +17,7 @@ echo env.MassInMass
 def foo2 = {m,mm ->
 echo env.Massive
 echo env.MassInMass
-    for (p in mm){
+    for (p in env.MassInMas){
         echo p+' hui'
         if (env.MassInMass.p){
             echo p
