@@ -5,7 +5,7 @@ echo env.MassInMass
 echo env.Massive
     for (p in mm){
         echo p+' hui'
-        echo mm
+        print (mm)
         if (env.Massive[p]){
             echo p
             env.Massive.p = false
