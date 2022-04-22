@@ -16,7 +16,7 @@ pipeline {
             parallel {
                 stage('Branch A') {
                     agent {
-                        label "for-branch-a"
+                         docker 'docker/getting-started'
                     }
                     steps {
                         echo "On Branch A"
@@ -24,7 +24,7 @@ pipeline {
                 }
                 stage('Branch B') {
                     agent {
-                        label "for-branch-b"
+                        docker 'docker/getting-started'
                     }
                     steps {
                         echo "On Branch B"
@@ -32,7 +32,7 @@ pipeline {
                 }
                 stage('Branch C') {
                     agent {
-                        label "for-branch-c"
+                        docker 'docker/getting-started'
                     }
                     stages {
                         stage('Nested 1') {
