@@ -33,7 +33,7 @@ pipeline {
                         //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
                         //     reuseNode true
                         //     label "build-image"
-                            }
+                            //}
                     }
                     steps {
                         sleep(random(10,50))
