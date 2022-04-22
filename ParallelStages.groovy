@@ -22,7 +22,7 @@ pipeline {
                     //     //}
                     // }
                     steps {
-                        sleep(30))
+                        sleep(30)
                         echo ''
                         echo "On Branch A"
                     }
