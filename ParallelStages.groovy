@@ -7,6 +7,27 @@ pipeline {
         stage('Non-Parallel Stage') {
             steps {
                 env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
+                def foo1 = {m ->
+                            for (n in m){
+                                if (n){
+                                    echo n
+                                    env.Massive.n = false
+                                    echo n
+                                    sleep(10)
+                                }
+                            }
+                        }
+                def = foo2 {m ->
+                            for (n in m){
+                                if (n){
+                                    echo n
+                                    env.Massive.n = false
+                                    echo n
+                                    sleep(10)
+
+                                }
+                            }
+                        }
             }
         }
         stage('Parallel Stage') {
@@ -22,16 +43,7 @@ pipeline {
                     //     //}
                     // }
                     steps {
-                        def foo1 {m ->
-                            for (n in m){
-                                if (n){
-                                    echo n
-                                    env.Massive.n = false
-                                    echo n
-                                    sleep(10)
-                                }
-                            }
-                        }
+                        foo1(env.Massive)
                     }
                 }
                 stage('Branch B') {
@@ -45,17 +57,9 @@ pipeline {
                     //         //}
                     // }
                     steps {
-                        def foo2 {m ->
-                            for (n in m){
-                                if (n){
-                                    echo n
-                                    env.Massive.n = false
-                                    echo n
-                                    sleep(10)
-
-                                }
-                            }
+                        foo2 (env.Massive)
                     }
+                        
                 }
             }
         }
