@@ -1,5 +1,5 @@
- env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
-                def foo1 = {m ->
+env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
+def foo1 = {m ->
                             for (n in m){
                                 if (n){
                                     echo n
@@ -9,7 +9,7 @@
                                 }
                             }
                         }
-                def = foo2 {m ->
+def = foo2 {m ->
                             for (n in m){
                                 if (n){
                                     echo n
