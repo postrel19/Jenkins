@@ -22,8 +22,8 @@ pipeline {
                     //     //}
                     // }
                     steps {
-                        sleep(random(10,50))
-                        echo '1'
+                        sleep(30))
+                        echo ''
                         echo "On Branch A"
                     }
                 }
@@ -38,7 +38,7 @@ pipeline {
                     //         //}
                     // }
                     steps {
-                        sleep(random(10,50))
+                        sleep(15)
                         echo '1'
                         echo "On Branch B"
                     }
@@ -58,7 +58,7 @@ pipeline {
                     stages {
                         stage('Nested 1') {
                             steps {
-                        sleep(random (10,50))
+                        sleep(5)
                         echo '1'
                                 echo "In stage Nested 1 within Branch C"
                             }
