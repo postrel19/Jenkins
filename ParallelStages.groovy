@@ -13,12 +13,12 @@ pipeline {
             parallel {
                 stage('Branch A') {
                     agent {
-                        //  docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                        //  }
+                         docker {
+                            image 'docker/getting-started'
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                         }
                     }
                     steps {
                         sleep(random(10,50))
@@ -28,12 +28,12 @@ pipeline {
                 }
                 stage('Branch B') {
                     agent {
-                        // docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                        //     }
+                        docker {
+                            image 'docker/getting-started'
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                            }
                     }
                     steps {
                         sleep(random(10,50))
@@ -45,12 +45,12 @@ pipeline {
                     agent {
                             // on interrupt do
                         
-                        // docker {
-                        //     image 'docker/getting-started'
-                        //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                        //     reuseNode true
-                        //     label "build-image"
-                        //     }
+                        docker {
+                            image 'docker/getting-started'
+                            args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
+                            reuseNode true
+                            label "build-image"
+                            }
                     }
                     stages {
                         stage('Nested 1') {
