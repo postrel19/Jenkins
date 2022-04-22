@@ -3,7 +3,7 @@ env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true'
 def foo1 = {m ->
 echo env.Massive
 echo env.MassInMass
-    for (par in env.MassInMas){
+    for (par in env.MassInMass){
         echo par+' hui'
         if (env.Massive.par){
             echo par
@@ -16,7 +16,7 @@ echo env.MassInMass
 def foo2 = {m ->
 echo env.Massive
 echo env.MassInMass
-    for (par in env.MassInMas){
+    for (par in env.MassInMass){
         echo par+' hui'
         if (env.MassInMass.par){
             echo par
