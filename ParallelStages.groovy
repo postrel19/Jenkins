@@ -44,7 +44,9 @@ pipeline {
                     //     //}
                     // }
                     steps {
+                        script{
                         foo1(env.Massive)
+                        }
                     }
                 }
                 stage('Branch B') {
@@ -58,7 +60,9 @@ pipeline {
                     //         //}
                     // }
                     steps {
+                        script{
                         foo2 (env.Massive)
+                        }
                     }
                         
                 }
