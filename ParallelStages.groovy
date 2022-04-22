@@ -1,12 +1,4 @@
-pipeline {
-    agent any
-    options {
-        parallelsAlwaysFailFast()
-    }
-    stages {
-        stage('Non-Parallel Stage') {
-            steps {
-                env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
+ env.Massive = [a:'true',b:'true',c:'true',d:'true',e:'true',f:'true']
                 def foo1 = {m ->
                             for (n in m){
                                 if (n){
@@ -28,6 +20,15 @@ pipeline {
                                 }
                             }
                         }
+pipeline {
+    agent any
+    options {
+        parallelsAlwaysFailFast()
+    }
+    stages {
+        stage('Non-Parallel Stage') {
+            steps {
+               echo env.Massive
             }
         }
         stage('Parallel Stage') {
