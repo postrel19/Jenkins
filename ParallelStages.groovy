@@ -1,5 +1,3 @@
-
-
 def funk1 = {massiv, names ->
     echo massiv
     echo names
@@ -23,7 +21,7 @@ pipeline {
                 stage ('init'){
                     steps {
                         script{
-                                          
+                                  
                         }
                     }
                 }
@@ -42,7 +40,7 @@ pipeline {
                     steps {
                         script{
                             Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                            String [] MassInMass = ['a','b','c','d','e','f']
+                            MassInMass = ['a','b','c','d','e','f']
                             funk1(Massive, MassInMass)
                         }
                     }
