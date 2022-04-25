@@ -17,19 +17,16 @@ pipeline {
     options {
         parallelsAlwaysFailFast()
     }
-    environment {
-        Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-        MassInMass = ['a','b','c','d','e','f']  
-        }
     stages {
         stage('Parallel Stage') {
             parallel {
                 stage ('init'){
-            steps {
-                    script{
-                        
+                    steps {
+                        script{
+                            Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+                            MassInMass[] = ['a','b','c','d','e','f']              
+                        }
                     }
-            }
                 }
                 stage('Branch A') {
                     agent any
