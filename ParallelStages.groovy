@@ -32,7 +32,7 @@ pipeline {
                     agent any
                     steps {
                         script{
-                            funk1(env.Massive, env.MassInMass)
+                            funk1(Massive,MassInMass)
                         }
                     }
                 }
@@ -40,7 +40,7 @@ pipeline {
                     agent any
                     steps {
                         script{
-                            funk1(env.Massive, env.MassInMass)
+                            funk1(Massive, MassInMass)
                         }
                     }
                         
