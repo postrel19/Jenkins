@@ -23,8 +23,7 @@ pipeline {
                 stage ('init'){
                     steps {
                         script{
-                            Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                            String [] MassInMass = ['a','b','c','d','e','f']              
+                                          
                         }
                     }
                 }
@@ -32,6 +31,8 @@ pipeline {
                     agent any
                     steps {
                         script{
+                            Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+                            String [] MassInMass = ['a','b','c','d','e','f']
                             funk1(Massive,MassInMass)
                         }
                     }
@@ -40,6 +41,8 @@ pipeline {
                     agent any
                     steps {
                         script{
+                            Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+                            String [] MassInMass = ['a','b','c','d','e','f']
                             funk1(Massive, MassInMass)
                         }
                     }
