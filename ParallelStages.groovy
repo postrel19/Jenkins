@@ -1,32 +1,18 @@
-env.MassInMass = ['a','b','c','d','e','f']
 env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-def foo1 = {m ->
-echo env.Massive
-echo env.MassInMass
-    for (par in env.MassInMass){
-        echo par+' hui'
-        if (env.Massive.par){
-            echo par
-            env.Massive.par = false
-            echo par
-            sleep(10)
-        }
-    }
-}
-def foo2 = {m ->
-echo env.Massive
-echo env.MassInMass
-    for (par in env.MassInMass){
-        echo par+' hui'
-        if (env.MassInMass.par){
-            echo par
-            env.Massive.par = false
-            echo par
-            sleep(10)
+env.MassInMass = ['a','b','c','d','e','f']
 
+def funk1 = {massiv, names
+    echo massiv
+    echo names
+    for (param in names){
+        echo param
+        echo massiv.param
+        if (massiv.param){
+            massiv.param=false
         }
     }
 }
+
 pipeline {
     agent any
     options {
@@ -43,33 +29,17 @@ pipeline {
             parallel {
                 stage('Branch A') {
                     agent any
-                    // { label 'master'
-                    //     //  docker {
-                    //     //     image 'docker/getting-started'
-                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                    //     //     reuseNode true
-                    //     //     label "build-image"
-                    //     //}
-                    // }
                     steps {
                         script{
-                        foo1(env.Massive)
+                            funk1(env.Massive, env.MassInMass)
                         }
                     }
                 }
                 stage('Branch B') {
                     agent any
-                    // { label 'master'
-                    //     // docker {
-                    //     //     image 'docker/getting-started'
-                    //     //     args "-v \${PWD}:/Users/postrel19/Desktop/GitHab/ -w /usr/src/app"
-                    //     //     reuseNode true
-                    //     //     label "build-image"
-                    //         //}
-                    // }
                     steps {
                         script{
-                        foo2 (env.Massive)
+                            funk1(env.Massive, env.MassInMass)
                         }
                     }
                         
