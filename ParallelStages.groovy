@@ -1,7 +1,7 @@
 env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
 env.MassInMass = ['a','b','c','d','e','f']
 
-def funk1 = {massiv, names
+def funk1 = {massiv, names ->
     echo massiv
     echo names
     for (param in names){
