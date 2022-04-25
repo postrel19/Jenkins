@@ -17,22 +17,16 @@ pipeline {
     options {
         parallelsAlwaysFailFast()
     }
+    environment {
+        Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+        MassInMass = ['a','b','c','d','e','f'] as String[]    }
     stages {
-        stage('Non-Parallel Stage') {
-            steps {
-                script{
-                def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                def MassInMass = ['a','b','c','d','e','f'] as String[]
-                }
-            }
-        }
         stage('Parallel Stage') {
             parallel {
                 stage ('init'){
             steps {
                     script{
-                        def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                        def MassInMass = ['a','b','c','d','e','f'] as String[]
+                        
                     }
             }
                 }
