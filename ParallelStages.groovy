@@ -24,7 +24,7 @@ pipeline {
                     steps {
                         script{
                             Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                            MassInMass[] = ['a','b','c','d','e','f']              
+                            String [] MassInMass = ['a','b','c','d','e','f']              
                         }
                     }
                 }
