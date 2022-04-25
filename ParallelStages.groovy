@@ -19,7 +19,8 @@ pipeline {
     }
     environment {
         Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-        MassInMass = ['a','b','c','d','e','f'] as String[]    }
+        MassInMass = ['a','b','c','d','e','f']  
+        }
     stages {
         stage('Parallel Stage') {
             parallel {
