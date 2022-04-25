@@ -20,8 +20,10 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
+                script{
                 def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
                 def MassInMass = ['a','b','c','d','e','f'] as String[]
+                }
             }
         }
         stage('Parallel Stage') {
