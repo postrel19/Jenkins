@@ -20,14 +20,17 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-
-
+                echo env.MassInMass
+                echo env.Massive
+                
             }
         }
         stage('Parallel Stage') {
-            script {
-                def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-                def MassInMass = ['a','b','c','d','e','f'] as String[]
+            step{
+                script{
+                    def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+                    def MassInMass = ['a','b','c','d','e','f'] as String[]
+                }
             }
             parallel {
                 stage('Branch A') {
