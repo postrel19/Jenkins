@@ -1,5 +1,5 @@
 env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-env.MassInMass = ['a','b','c','d','e','f']
+env.MassInMass = ['a','b','c','d','e','f'] as String[]
 
 def funk1 = {massiv, names ->
     echo massiv
