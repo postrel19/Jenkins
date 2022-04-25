@@ -18,13 +18,6 @@ pipeline {
     stages {
         stage('Parallel Stage') {
             parallel {
-                stage ('init'){
-                    steps {
-                        script{
-                                  
-                        }
-                    }
-                }
                 stage('Branch A') {
                     agent any
                     steps {
