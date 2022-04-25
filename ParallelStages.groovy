@@ -1,5 +1,5 @@
-def Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
-def MassInMass = ['a','b','c','d','e','f'] as String[]
+def env.Massive = ['a':'true','b':'true','c':'true','d':'true','e':'true','f':'true']
+def env.MassInMass = ['a','b','c','d','e','f'] as String[]
 
 def funk1 = {massiv, names ->
     echo massiv
@@ -21,8 +21,8 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-                echo MassInMass
-                echo Massive
+                echo env.MassInMass
+                echo env.Massive
             }
         }
         stage('Parallel Stage') {
@@ -31,7 +31,7 @@ pipeline {
                     agent any
                     steps {
                         script{
-                            funk1(sMassive, sMassInMass)
+                            funk1(env.Massive, env.MassInMass)
                         }
                     }
                 }
@@ -39,7 +39,7 @@ pipeline {
                     agent any
                     steps {
                         script{
-                            funk1(sMassive, sMassInMass)
+                            funk1(env.Massive, env.MassInMass)
                         }
                     }
                         
